@@ -1,0 +1,34 @@
+<h2 class="myDashboard">My Dashboard</h2>
+
+<h4 class="myDashboardWelcome">Welcome {{name}}</h4>
+
+{{#if stories}}
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th class="datePublished">Date Published</th>
+                <th class="dash-status">Status</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each stories}}
+                <tr>
+                    <td><a href="/stories/{{_id}}" id="dashTitle">{{stripTags (truncate title 35)}}</a></td>
+                    <td class="datePublished">{{formatDate createdAt 'MMMM Do YYYY'}}</td>
+                    <td><span class="dash-status">{{status}}</span></td>
+                    <td class="editAndDelete">
+                        <a href="/stories/edit/{{_id}}" id="editBtn">EDIT</a>
+                        <form action="/stories/{{_id}}" method="POST" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" id="deleteBtn">DELETE</button>
+                        </form>
+                    </td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{else}}
+    <p style="margin:10%">You have not created any stories :( Once you create stories, They will appear here!</p>
+{{/if}}

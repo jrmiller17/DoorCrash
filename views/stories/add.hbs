@@ -1,0 +1,33 @@
+<style>.addStory{display: none;}</style>
+<h2 id="addStory">Add Story</h2>
+<div class="add-row-div">
+    <form action="/stories" method="POST" class="col s12">
+        <div class="add-row">
+            <div class="input-field">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title">
+                
+            </div>
+        </div>
+        <div class="add-row">
+            <div class="input-field">
+                <label for="status">Status</label>
+                <select name="status" id="status">
+                    <option value="public" selected> public</option>
+                    <option value="private">Private</option>
+                </select>
+                
+            </div>
+        </div>
+        <div class="add-row">
+            <div class="input-field">
+                <h4>Tell us your Story:</h4>
+                <textarea name="body" id="body" cols="30" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="add-row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dash" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>
